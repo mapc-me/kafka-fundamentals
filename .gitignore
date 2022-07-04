@@ -1,0 +1,17 @@
+target/
+logs/
+local-dev-env/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### Helm ###
+/chart/charts
+/chart/Chart.lock
+
+### IntelliJ IDEA ###
+.idea/**
+*.iws
+*.iml
+*.ipr
+.gradle/**

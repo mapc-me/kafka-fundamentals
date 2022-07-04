@@ -1,0 +1,24 @@
+docker run -d \
+  --name=kafka-connect \
+  -p 8083:8083 \
+  -e CONNECT_PRODUCER_INTERCEPTOR_CLASSES=io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor \
+  -e CONNECT_CONSUMER_INTERCEPTOR_CLASSES=io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor \
+  -e CONNECT_BOOTSTRAP_SERVERS=localhost:9092 \
+  -e CONNECT_REST_PORT=28082 \
+  -e CONNECT_GROUP_ID="quickstart" \
+  -e CONNECT_CONFIG_STORAGE_TOPIC="quickstart-config" \
+  -e CONNECT_OFFSET_STORAGE_TOPIC="quickstart-offsets" \
+  -e CONNECT_STATUS_STORAGE_TOPIC="quickstart-status" \
+  -e CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR=1 \
+  -e CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR=1 \
+  -e CONNECT_STATUS_STORAGE_REPLICATION_FACTOR=1 \
+  -e CONNECT_KEY_CONVERTER="org.apache.kafka.connect.json.JsonConverter" \
+  -e CONNECT_VALUE_CONVERTER="org.apache.kafka.connect.json.JsonConverter" \
+  -e CONNECT_INTERNAL_KEY_CONVERTER="org.apache.kafka.connect.json.JsonConverter" \
+  -e CONNECT_INTERNAL_VALUE_CONVERTER="org.apache.kafka.connect.json.JsonConverter" \
+  -e CONNECT_REST_ADVERTISED_HOST_NAME="localhost" \
+  -e CONNECT_LOG4J_ROOT_LOGLEVEL=DEBUG \
+  -e CONNECT_LOG4J_LOGGERS=org.reflections=ERROR \
+  -e CONNECT_PLUGIN_PATH=/usr/local/share/kafka/plugins \
+  -v /tmp/quickstart/file:/tmp/quickstart \
+  confluentinc/cp-kafka-connect:4.0.0
