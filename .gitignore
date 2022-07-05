@@ -1,5 +1,6 @@
 target/
 logs/
+build/
 local-dev-env/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
