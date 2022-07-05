@@ -14,4 +14,9 @@ local-dev-env/
 *.iws
 *.iml
 *.ipr
+
+
+gradle/**
 .gradle/**
+gradlew.bat
+gradlew
