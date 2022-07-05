@@ -6,7 +6,6 @@
     "connection.url": "jdbc:mysql://mysql:3306",
     "connection.user": "admin",
     "connection.password": "root",
-    "table.whitelist": "test_table",
     "mode": "incrementing",
     "topic.prefix": "recon-",
     "name": "jdbc-source-connector"
